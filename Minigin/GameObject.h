@@ -1,31 +1,65 @@
 #pragma once
 #include <memory>
-#include "Transform.h"
-
+#include <typeindex>
+#include <unordered_map>
+#include "ComponentBase.h"
 namespace dae
 {
-	class Texture2D;
 
 	// todo: this should become final.
-	class GameObject 
+	class GameObject final
 	{
 	public:
-		virtual void Update();
-		virtual void Render() const;
+		void Update(float dt);
+		void Render() const;
 
-		void SetTexture(const std::string& filename);
-		void SetPosition(float x, float y);
-
-		GameObject() = default;
-		virtual ~GameObject();
+		GameObject();
+		~GameObject();
 		GameObject(const GameObject& other) = delete;
 		GameObject(GameObject&& other) = delete;
 		GameObject& operator=(const GameObject& other) = delete;
 		GameObject& operator=(GameObject&& other) = delete;
 
+		template <typename T, class... Args> T* AddComponent(Args&&... args);
+		template <typename T> T* GetComponent() const;
+		template <typename T> void RemoveComponent();
+
+
+
 	private:
-		Transform m_transform{};
-		// todo: mmm, every gameobject has a texture? Is that correct?
-		std::shared_ptr<Texture2D> m_texture{};
+		std::unordered_map<std::type_index, ComponentBase*> m_Components;
 	};
+
+	//the args stuff is used to forward the arguments to the correct constructor
+	template <typename T, class... Args>
+	T* dae::GameObject::AddComponent(Args&&... args)
+	{
+		static_assert(std::is_base_of<ComponentBase, T>::value, "Component must derive from ComponentBase");
+		//Add a new element to the unordered map
+		T* cpt = new T(this, std::forward<Args>(args)... );
+		m_Components[typeid(T)] = cpt;
+		return cpt;
+	}
+
+	template <typename T>
+	T* dae::GameObject::GetComponent() const
+	{
+		static_assert(std::is_base_of<ComponentBase, T>::value, "Component must derive from ComponentBase");
+		auto it = m_Components.find(typeid(T));
+		if (it != m_Components.end()) {
+			return dynamic_cast<T*>(it->second);
+		}
+		return nullptr;
+	}
+
+	template <typename T>
+	void dae::GameObject::RemoveComponent()
+	{
+		static_assert(std::is_base_of<ComponentBase, T>::value, "Component must derive from ComponentBase");
+		auto it = m_Components.find(std::type_index(typeid(T)));
+        if (it != m_Components.end()) {
+            delete it->second;
+            m_Components.erase(it);
+		}
+	}
 }

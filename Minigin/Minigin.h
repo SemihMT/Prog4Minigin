@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
 #include <functional>
-
+#include "GameObject.h"
+#include "TransformComponent.h"
+#include "TextRendererComponent.h"
+#include "FPSCalculatorComponent.h"
 namespace dae
 {
 	class Minigin
