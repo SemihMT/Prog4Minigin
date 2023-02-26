@@ -5,6 +5,7 @@
 #include "TransformComponent.h"
 #include "TextRendererComponent.h"
 #include "FPSCalculatorComponent.h"
+#include "SpriteRendererComponent.h"
 namespace dae
 {
 	class Minigin
