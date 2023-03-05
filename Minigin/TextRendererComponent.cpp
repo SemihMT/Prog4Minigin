@@ -23,7 +23,7 @@ void TextRendererComponent::Render() const
 	SDL_Surface* textSurface = TTF_RenderText_Blended(font, m_Text.c_str(), m_Color);
 	// Create texture from surface and render it to the screen
 	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(rdr, textSurface);
-	SDL_Rect textRect = { static_cast<int>(m_pParent->GetComponent<TransformComponent>()->GetPosition().x), static_cast<int>(m_pParent->GetComponent<TransformComponent>()->GetPosition().y), textSurface->w, textSurface->h };
+	SDL_Rect textRect = { static_cast<int>(GetParent()->GetComponent<TransformComponent>()->GetPosition().x), static_cast<int>(GetParent()->GetComponent<TransformComponent>()->GetPosition().y), textSurface->w, textSurface->h };
 	SDL_RenderCopy(rdr, textTexture, nullptr, &textRect);
 
 	// Clean up resources

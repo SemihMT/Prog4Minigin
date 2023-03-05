@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 
-class TextRendererComponent final : public ComponentBase {
+class TextRendererComponent final : public dae::ComponentBase {
 public:
     //Basic constructor, elements need to be set before use
     TextRendererComponent(const dae::GameObject* parent);

@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "ComponentBase.h"
 
-class FPSCalculatorComponent final : public ComponentBase
+class FPSCalculatorComponent final : public dae::ComponentBase
 {
 public:
 	FPSCalculatorComponent(dae::GameObject* parent);

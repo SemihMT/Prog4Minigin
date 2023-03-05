@@ -16,7 +16,7 @@ void FPSCalculatorComponent::Update(float deltaTime)
         {
             int fps = static_cast<int>(m_frameCount / m_elapsedTime);
             std::string text{"FPS: " + std::to_string(fps)};
-            m_pParent->GetComponent<TextRendererComponent>()->SetText(text);
+            GetParent()->GetComponent<TextRendererComponent>()->SetText(text);
 
             m_frameCount = 0;
             m_elapsedTime = 0.0f;

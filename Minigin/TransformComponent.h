@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 
 
-class TransformComponent final : public ComponentBase
+class TransformComponent final : public dae::ComponentBase
 {
 public:
 	TransformComponent(const dae::GameObject* parent);

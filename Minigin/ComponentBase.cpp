@@ -1,8 +1,15 @@
 ﻿#include "ComponentBase.h"
 #include "GameObject.h"
-ComponentBase::ComponentBase(const dae::GameObject* parent) :
+
+
+dae::ComponentBase::ComponentBase(const dae::GameObject* parent) :
 	m_pParent{parent}
 {
+}
+
+const dae::GameObject* dae::ComponentBase::GetParent() const
+{
+	return m_pParent;
 }
 
 

@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 
-class SpriteRendererComponent final : public ComponentBase {
+class SpriteRendererComponent final : public dae::ComponentBase {
 public:
     //Basic constructor, elements need to be set before use
     SpriteRendererComponent(const dae::GameObject* parent);

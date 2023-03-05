@@ -51,7 +51,7 @@ SpriteRendererComponent::~SpriteRendererComponent()
 
 void SpriteRendererComponent::Render() const
 {
-	SDL_Rect destRect = { static_cast<int>(m_pParent->GetComponent<TransformComponent>()->GetPosition().x), static_cast<int>(m_pParent->GetComponent<TransformComponent>()->GetPosition().y), m_ImageSurface->w, m_ImageSurface->h };
+	SDL_Rect destRect = { static_cast<int>(GetParent()->GetComponent<TransformComponent>()->GetPosition().x), static_cast<int>(GetParent()->GetComponent<TransformComponent>()->GetPosition().y), m_ImageSurface->w, m_ImageSurface->h };
 	SDL_RenderCopy(dae::Renderer::GetInstance().GetSDLRenderer(), m_Texture, nullptr, &destRect);
 }
 
