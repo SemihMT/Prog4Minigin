@@ -175,6 +175,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CircularMovementComponent.h" />
     <ClInclude Include="ComponentBase.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FPSCalculatorComponent.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CircularMovementComponent.cpp" />
     <ClCompile Include="ComponentBase.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPSCalculatorComponent.cpp" />

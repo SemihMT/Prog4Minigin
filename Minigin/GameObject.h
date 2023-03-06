@@ -2,6 +2,8 @@
 #include <memory>
 #include <typeindex>
 #include <unordered_map>
+#include <glm/vec3.hpp>
+
 #include "ComponentBase.h"
 namespace dae
 {
@@ -22,10 +24,38 @@ namespace dae
 		template <typename T> T* GetComponent() const;
 		template <typename T> void RemoveComponent();
 
+		void SetParent(GameObject* parent, bool keepWorldPos);
+		dae::GameObject* GetParent();
+		const glm::vec3& GetWorldPosition();
 
+		void SetLocalPosition(const glm::vec3& pos);
+		const glm::vec3& GetLocalPosition() const;
 
 	private:
+
+		//store all components
 		std::unordered_map<std::type_index, ComponentBase*> m_Components;
+
+		//store children
+		std::vector<GameObject*> m_pChildren;
+
+		//editing the vector
+		void AddChild(GameObject* child);
+		void RemoveChild(GameObject* child);
+
+
+		//This GameObject's parent, if it has one.
+		GameObject* m_pParentObject = nullptr;
+
+		//Dirty flag for the position
+		bool m_PositionFlag;
+
+		void SetPositionDirty();
+
+		void UpdateWorldPosition();
+
+		
+		
 	};
 
 	//the args stuff is used to forward the arguments to the correct constructor

@@ -6,9 +6,9 @@
 class TextRendererComponent final : public dae::ComponentBase {
 public:
     //Basic constructor, elements need to be set before use
-    TextRendererComponent(const dae::GameObject* parent);
+    TextRendererComponent(dae::GameObject* parent);
     //Constructor that sets all elements of the component 
-    TextRendererComponent(const dae::GameObject* parent,const std::string& fontPath, int fontSize, const std::string& text, SDL_Color color);
+    TextRendererComponent(dae::GameObject* parent,const std::string& fontPath, int fontSize, const std::string& text, SDL_Color color);
 
     ~TextRendererComponent() = default;
 	TextRendererComponent(const TextRendererComponent& other) = delete;

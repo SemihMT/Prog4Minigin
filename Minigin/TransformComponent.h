@@ -6,8 +6,8 @@
 class TransformComponent final : public dae::ComponentBase
 {
 public:
-	TransformComponent(const dae::GameObject* parent);
-	TransformComponent(const dae::GameObject* parent, const glm::vec3 position);
+	TransformComponent(dae::GameObject* parent);
+	TransformComponent(dae::GameObject* parent, const glm::vec3& position);
 	~TransformComponent() = default;
 
 	TransformComponent(const TransformComponent& other) = delete;
@@ -15,10 +15,16 @@ public:
 	TransformComponent& operator=(const TransformComponent& other) = delete;
 	TransformComponent& operator=(TransformComponent&& other) = delete;
 
-	void SetPosition(const glm::vec3 position);
-	glm::vec3 GetPosition() const;
+	void SetLocalPosition(const glm::vec3& position);
+	const glm::vec3& GetLocalPosition() const;
+
+	const glm::vec3& GetWorldPosition() const;
+	void SetWorldPosition(const glm::vec3& position);
+
 	void Update(float deltaTime) override;
 
 private:
-	glm::vec3 m_position;
+	glm::vec3 m_LocalPosition;
+	glm::vec3 m_WorldPosition;
+
 };

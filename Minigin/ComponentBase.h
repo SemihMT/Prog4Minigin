@@ -5,12 +5,10 @@
 namespace dae
 {
 	class GameObject;
-
-
 	class ComponentBase
 	{
 	public:
-		ComponentBase(const GameObject* parent);
+		ComponentBase(GameObject* parent);
 		virtual ~ComponentBase() = default;
 
 		ComponentBase(const ComponentBase& other) = delete;
@@ -22,10 +20,10 @@ namespace dae
 		virtual void Render()const {}
 
 	protected:
-		const GameObject* GetParent() const;
+		GameObject* GetParent() const;
 
 	private:
 		//allowing the components to access their owner gives them the ability to access and communicate with the other components of the gameObject
-		const GameObject* m_pParent{ nullptr };
+		GameObject* m_pParent{ nullptr };
 	};
 }

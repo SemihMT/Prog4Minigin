@@ -5,9 +5,9 @@
 class SpriteRendererComponent final : public dae::ComponentBase {
 public:
     //Basic constructor, elements need to be set before use
-    SpriteRendererComponent(const dae::GameObject* parent);
+    SpriteRendererComponent(dae::GameObject* parent);
     //Constructor that sets all elements of the component 
-    SpriteRendererComponent(const dae::GameObject* parent,const std::string& imagePath);
+    SpriteRendererComponent(dae::GameObject* parent,const std::string& imagePath);
 
     ~SpriteRendererComponent() override;
 	SpriteRendererComponent(const SpriteRendererComponent& other) = delete;

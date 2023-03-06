@@ -6,6 +6,8 @@
 #include "TextRendererComponent.h"
 #include "FPSCalculatorComponent.h"
 #include "SpriteRendererComponent.h"
+#include "CircularMovementComponent.h"
+
 namespace dae
 {
 	class Minigin
