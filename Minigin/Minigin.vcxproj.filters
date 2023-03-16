@@ -93,6 +93,15 @@
     <ClInclude Include="..\3rdParty\imgui\backends\imgui_impl_sdl2.h">
       <Filter>Imgui</Filter>
     </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui\implot_internal.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui\imgui_plot.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\imgui\implot.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ResourceManager.cpp">
@@ -165,6 +174,18 @@
       <Filter>Imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\3rdParty\imgui\backends\imgui_impl_sdl2.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui\implot_demo.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui\implot_items.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui\imgui_plot.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\imgui\implot.cpp">
       <Filter>Imgui</Filter>
     </ClCompile>
   </ItemGroup>
