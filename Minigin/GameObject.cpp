@@ -18,6 +18,7 @@ dae::GameObject::~GameObject()
 	}
 	m_Components.clear();
 
+
 }
 
 void dae::GameObject::SetParent(GameObject* parent, bool keepWorldPos)
@@ -125,6 +126,15 @@ void dae::GameObject::Render() const
 {
 	for (auto& pair : m_Components) {
 		pair.second->Render();
+
+	}
+}
+
+void dae::GameObject::RenderUI() const
+{
+	for (auto& pair : m_Components) {
+		pair.second->RenderUI();
+
 	}
 }
 

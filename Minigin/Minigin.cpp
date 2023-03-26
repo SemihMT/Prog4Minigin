@@ -81,7 +81,7 @@ dae::Minigin::~Minigin()
 void dae::Minigin::Run(const std::function<void()>& load)
 {
 	load();
-
+	
 	auto& renderer = Renderer::GetInstance();
 	auto& sceneManager = SceneManager::GetInstance();
 	auto& input = InputManager::GetInstance();
@@ -97,6 +97,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 		const auto start = std::chrono::high_resolution_clock::now();
 		const auto currentTime = std::chrono::high_resolution_clock::now();
 		const float deltaTime = std::chrono::duration<float>(currentTime - lastTime).count();
+		
 		doContinue = input.ProcessInput();
 		sceneManager.Update(deltaTime);
 		renderer.Render();

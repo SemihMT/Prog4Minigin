@@ -17,7 +17,8 @@ namespace dae
 		ComponentBase& operator=(ComponentBase&& other) = delete;
 
 		virtual void Update(float /*deltaTime*/) {}
-		virtual void Render()const {}
+		virtual void Render() const {}
+		virtual void RenderUI() {}
 
 	protected:
 		GameObject* GetParent() const;

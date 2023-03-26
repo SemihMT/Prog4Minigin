@@ -170,7 +170,6 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -195,10 +194,12 @@
     <ClInclude Include="..\3rdParty\imgui\imstb_textedit.h" />
     <ClInclude Include="..\3rdParty\imgui\imstb_truetype.h" />
     <ClInclude Include="CircularMovementComponent.h" />
+    <ClInclude Include="Commands.h" />
     <ClInclude Include="ComponentBase.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FPSCalculatorComponent.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="ICommand.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Minigin.h" />
     <ClInclude Include="Renderer.h" />
@@ -207,10 +208,16 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SpriteRendererComponent.h" />
+    <ClInclude Include="TestComponent.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="TextRendererComponent.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="TrashTheCacheComponent.h" />
+    <ClInclude Include="XInputController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3rdParty\imgui\backends\imgui_impl_opengl2.cpp" />
@@ -225,10 +232,12 @@
     <ClCompile Include="..\3rdParty\imgui\implot_demo.cpp" />
     <ClCompile Include="..\3rdParty\imgui\implot_items.cpp" />
     <ClCompile Include="CircularMovementComponent.cpp" />
+    <ClCompile Include="Commands.cpp" />
     <ClCompile Include="ComponentBase.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPSCalculatorComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="ICommand.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Minigin.cpp" />
@@ -237,10 +246,16 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SpriteRendererComponent.cpp" />
+    <ClCompile Include="TestComponent.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="TextRendererComponent.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="TrashTheCacheComponent.cpp" />
+    <ClCompile Include="XInputController.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,6 +12,7 @@ namespace dae
 	public:
 		void Update(float dt);
 		void Render() const;
+		void RenderUI() const;
 
 		GameObject();
 		~GameObject();

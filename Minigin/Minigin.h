@@ -7,6 +7,8 @@
 #include "FPSCalculatorComponent.h"
 #include "SpriteRendererComponent.h"
 #include "CircularMovementComponent.h"
+#include "TestComponent.h"
+#include "TrashTheCacheComponent.h"
 
 namespace dae
 {

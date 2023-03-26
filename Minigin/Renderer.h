@@ -29,22 +29,7 @@ namespace dae
 		const SDL_Color& GetBackgroundColor() const { return m_clearColor; }
 		void SetBackgroundColor(const SDL_Color& color) { m_clearColor = color; }
 	private:
-		bool m_ShowDemo{ true };
-		bool m_ShowEx1{ false };
-		bool m_ShowEx2{ false };
-
-		int intSamples{};
-		int gameObjSamples{};
-
-		ImGui::PlotConfig conf;
-		ImGui::PlotConfig config;
-		ImGui::PlotConfig config1;
-
-
-		long long avg{};
-		std::vector<float> plotDataInts{};
-		std::vector<float> plotDataGO{};
-		std::vector<float> plotDataGOA{};
+		
 		void AddImGuiFrame();
 		void EndImGuiFrame();
 		void RenderImGui();
