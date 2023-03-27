@@ -3,10 +3,10 @@
 
 #include "ICommand.h"
 
-class MoveCommand : public ICommand
+class MoveThumbstickCommand : public ICommand
 {
 public:
-	MoveCommand(dae::GameObject* gameObject, float speed, unsigned id);
+	MoveThumbstickCommand(dae::GameObject* gameObject, float speed, unsigned id);
 	void Execute() override;
 private:
 	dae::GameObject* m_pGameObject{};
@@ -23,4 +23,16 @@ private:
 	dae::GameObject* m_pGameObject{};
 	glm::vec2 m_Dir{};
 	float m_Speed{};
+};
+
+class MoveDpadCommand : public ICommand
+{
+public:
+	MoveDpadCommand(dae::GameObject* gameObject, const glm::vec2& dir, float speed);
+	void Execute() override;
+private:
+	dae::GameObject* m_pGameObject{};
+	glm::vec2 m_Dir{};
+	float m_Speed{};
+
 };

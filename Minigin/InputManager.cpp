@@ -19,16 +19,65 @@ bool dae::InputManager::ProcessInput()
 		controller->Update();
 	}
 
-
+	//there has to be a better way....
 	for (const auto& command : m_ConsoleCommands)
 	{
-		command.second->Execute();
+		if (command.first.second == static_cast<XInputController::Button>(0))
+		{
+			command.second->Execute();
+			continue;
+		}
+
+		switch (command.first.second)
+		{
+		case XInputController::Button::DPAD_UP:
+		{
+			if (IsPressed(command.first.first, XInputController::Button::DPAD_UP))
+			{
+				command.second->Execute();
+			}
+		}
+		break;
+		case XInputController::Button::DPAD_DOWN:
+		{
+			if (IsPressed(command.first.first, XInputController::Button::DPAD_DOWN))
+			{
+				command.second->Execute();
+			}
+		}break;
+		case XInputController::Button::DPAD_LEFT:
+		{
+			if (IsPressed(command.first.first, XInputController::Button::DPAD_LEFT))
+			{
+				command.second->Execute();
+			}
+		}break;
+		case XInputController::Button::DPAD_RIGHT:
+		{
+			if (IsPressed(command.first.first, XInputController::Button::DPAD_RIGHT))
+			{
+				command.second->Execute();
+			}
+		} break;
+		case XInputController::Button::START: break;
+		case XInputController::Button::BACK: break;
+		case XInputController::Button::LEFT_THUMB: break;
+		case XInputController::Button::RIGHT_THUMB: break;
+		case XInputController::Button::LEFT_SHOULDER: break;
+		case XInputController::Button::RIGHT_SHOULDER: break;
+		case XInputController::Button::A: break;
+		case XInputController::Button::B: break;
+		case XInputController::Button::X: break;
+		case XInputController::Button::Y: break;
+		default:;
+		}
+
 	}
 
-	for(const auto& command : m_KeyboardCommands)
+	for (const auto& command : m_KeyboardCommands)
 	{
 		auto* pKeyboardState = SDL_GetKeyboardState(nullptr);
-		if(pKeyboardState[command.first])
+		if (pKeyboardState[command.first])
 		{
 			command.second->Execute();
 		}
@@ -41,13 +90,13 @@ bool dae::InputManager::ProcessInput()
 			return false;
 		}
 		if (e.type == SDL_KEYDOWN) {
-			
+
 		}
-		if(e.type == SDL_KEYUP)
+		if (e.type == SDL_KEYUP)
 		{
-			
+
 		}
-		
+
 		if (e.type == SDL_MOUSEBUTTONDOWN) {
 
 		}
@@ -87,17 +136,17 @@ void dae::InputManager::AddCommand(int keyCode, std::unique_ptr<ICommand> comman
 	m_KeyboardCommands[keyCode] = std::move(command);
 }
 
-bool dae::InputManager::IsDown(unsigned int idx,XInputController::Button button) const
+bool dae::InputManager::IsDown(unsigned int idx, XInputController::Button button) const
 {
 	return m_Controllers[idx]->IsDown(button);
 }
 
-bool dae::InputManager::IsUp(unsigned int idx,XInputController::Button button) const
+bool dae::InputManager::IsUp(unsigned int idx, XInputController::Button button) const
 {
 	return m_Controllers[idx]->IsUp(button);
 }
 
-bool dae::InputManager::IsPressed(unsigned int idx,XInputController::Button button) const
+bool dae::InputManager::IsPressed(unsigned int idx, XInputController::Button button) const
 {
 	return m_Controllers[idx]->IsPressed(button);
 }
